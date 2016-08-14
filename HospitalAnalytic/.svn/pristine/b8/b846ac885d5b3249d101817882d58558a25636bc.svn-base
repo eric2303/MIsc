@@ -1,0 +1,43 @@
+package com.rbccm.hospital.file;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.Iterator;
+
+public class HospitalCSVReader implements Iterable<CSVLine>{
+	private BufferedReader reader;
+	private CSVLine nextLine;
+	public HospitalCSVReader(BufferedReader reader) {
+		this.reader = reader;
+	}
+	@Override
+	public Iterator<CSVLine> iterator() {
+		// TODO Auto-generated method stub
+		return new HospitalCSVIterator();	
+	}
+	
+	private class HospitalCSVIterator implements Iterator<CSVLine>{
+		@Override
+		public boolean hasNext() {
+			
+			try {
+				String line;
+				if((line=reader.readLine())!=null){
+					nextLine = new CSVLine(line);
+					return true;
+				}
+			} catch (IOException e) {
+				return false;
+			}
+			return false;
+		}
+
+		@Override
+		public CSVLine next() {
+			// TODO Auto-generated method stub
+			return nextLine;
+		}
+		
+	}
+	
+}

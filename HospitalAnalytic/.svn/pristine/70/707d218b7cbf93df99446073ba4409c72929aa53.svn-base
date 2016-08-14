@@ -1,0 +1,36 @@
+package com.rbccm.hospital.output;
+
+import java.util.List;
+
+import com.rbccm.hospital.questions.TopDiagnosis;
+
+public class OutputFormatter {
+
+	private String facilityName;
+	private int avgLenStay;
+	private int avgAge;
+	private List<TopDiagnosis> topDiagnosisList;
+	public OutputFormatter(String facilityName, int avgLenStay, int avgAge,List<TopDiagnosis> topDiagnosisList) {
+		this.facilityName = facilityName;
+		this.avgLenStay = avgLenStay;
+		this.avgAge = avgAge;
+		this.topDiagnosisList = topDiagnosisList;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(String.format("%s: Average Length of Stay: %d days, Average Age: %d \n",
+				facilityName,
+				avgLenStay,
+				avgAge));
+		for (TopDiagnosis topDiagnosis : topDiagnosisList){
+			sb.append(String.format("Top Diagnosis:%f count: %d \n",
+					topDiagnosis.getTopDiagnosisNumber(),
+					topDiagnosis.getTopDiagnosisCount()));
+		}
+		
+		return sb.toString();
+	}
+
+}

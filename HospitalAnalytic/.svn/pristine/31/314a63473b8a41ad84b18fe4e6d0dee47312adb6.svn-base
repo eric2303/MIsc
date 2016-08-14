@@ -1,0 +1,35 @@
+package com.rbccm.hospital.questions;
+
+import java.util.Collection;
+
+import com.rbccm.hospital.patient.Patient;
+
+public class QuestionFactory {
+	private static QuestionFactory instance = null;
+	private QuestionFactory() {
+		//don't want anybody initiate it
+	}
+	public static QuestionFactory getInstance(){
+		if (instance == null){
+			instance = new QuestionFactory();
+		}
+		return instance;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public Questions getQuestion(QuestionType questionType,Collection<Patient> patients) {
+		if(questionType.equals(QuestionType.AvgAgeQuestion)){
+			return  new AvgAgeQuestion(patients);
+		}else if(questionType.equals(QuestionType.AvgLenQuestion)){
+			return new AvgLenStayQuestion(patients);
+		}else if(questionType.equals(QuestionType.TopDiagnosisQuestion)){
+			return new TopDiagnosisQuestion(patients);
+		}else if(questionType.equals(QuestionType.MaxAdmissionMonthQuestion))
+			return new MaxAdmissionMonth(patients);
+		else{
+			return null;
+		}
+	}
+	
+
+}

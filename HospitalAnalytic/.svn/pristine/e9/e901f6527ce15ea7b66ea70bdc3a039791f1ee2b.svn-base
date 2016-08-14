@@ -1,0 +1,5 @@
+package com.rbccm.hospital.Questions;
+
+public enum QuestionType {
+	AvgLenQuestion, AvgAgeQuestion, TopDiagnosisQuestion;
+}

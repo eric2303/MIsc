@@ -1,0 +1,57 @@
+package com.rbccm.hospital.file;
+
+import java.util.Date;
+
+import com.rbccm.hospital.patient.SexType;
+
+public class CSVLine {
+	private int patientID;
+	private String facilityName;
+	private int vistID;
+	private Date admitDate;
+	private Date dischargeDate;
+	private SexType sexType;
+	private Date dob;
+	private double diagnose;
+	
+	private String line;
+	public CSVLine(String line){
+		this.line = line;
+	}
+	
+	public void processLine(){
+		String[] attrList = line.split(",",-1);
+		facilityName = attrList[0];
+		vistID = Integer.parseInt(attrList[1]);
+		patientID = Integer.parseInt(attrList[2]);
+		
+		
+	}
+
+	public int getPatientID() {
+		return patientID;
+	}
+	public String getFacilityName() {
+		return facilityName;
+	}
+	public int getVistID() {
+		return vistID;
+	}
+	public Date getAdmitDate() {
+		return admitDate;
+	}
+	public Date getDischargeDate() {
+		return dischargeDate;
+	}
+	public SexType getSexType() {
+		return sexType;
+	}
+	public Date getDob() {
+		return dob;
+	}
+	public double getDiagnose() {
+		return diagnose;
+	}
+	
+	
+}

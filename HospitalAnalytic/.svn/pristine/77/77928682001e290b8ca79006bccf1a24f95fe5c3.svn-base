@@ -1,0 +1,40 @@
+package com.rbccm.hospital.patient;
+
+import java.util.Date;
+
+public class Admission {
+	private int visitID;
+	private Date admitDate;
+	private Date dischargeDate;
+	private String primDIA;
+	public Admission(int visitID, Date admitDate, Date dischargeDate, String primDIA) {
+		this.visitID = visitID;
+		this.admitDate = admitDate;
+		this.dischargeDate = dischargeDate;
+		this.primDIA = primDIA;
+	}
+	public int getVisitID() {
+		return visitID;
+	}
+	public void setVisitID(int visitID) {
+		this.visitID = visitID;
+	}
+	public Date getAdmitDate() {
+		return admitDate;
+	}
+	public void setAdmitDate(Date admitDate) {
+		this.admitDate = admitDate;
+	}
+	public Date getDischargeDate() {
+		return dischargeDate;
+	}
+	public void setDischargeDate(Date dischageDate) {
+		this.dischargeDate = dischageDate;
+	}
+	public String getPrimDIA() {
+		return primDIA;
+	}
+	public void setPrimDIA(String primDIA) {
+		this.primDIA = primDIA;
+	}
+}

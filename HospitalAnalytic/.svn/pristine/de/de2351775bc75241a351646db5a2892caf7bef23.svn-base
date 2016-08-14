@@ -1,0 +1,46 @@
+package com.rbccm.hospital.patient;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class Patient {
+	private int patientID;
+	private SexType sexType;
+	private Date dob;
+	private List<Admission> admissions;
+	
+	public Patient(int patientID, SexType sexType, Date dob){
+		this.patientID = patientID;
+		this.sexType = sexType;
+		this.dob = dob;
+		this.admissions = new ArrayList<>();
+	}
+	public int getPatientID() {
+		return patientID;
+	}
+	public void setPatientID(int patientID) {
+		this.patientID = patientID;
+	}
+	public SexType getSexType() {
+		return sexType;
+	}
+	public void setSexType(SexType sexType) {
+		this.sexType = sexType;
+	}
+	public Date getDob() {
+		return dob;
+	}
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+	public List<Admission> getAdmissions() {
+		return admissions;
+	}
+	
+	public void addAdmisions(Admission admission){
+		this.admissions.add(admission);
+	}
+	
+	
+}

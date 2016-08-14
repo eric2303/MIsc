@@ -1,0 +1,22 @@
+package com.rbccm.hospital.hospitals;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.rbccm.hospital.patient.Admission;
+import com.rbccm.hospital.patient.SexType;
+
+public class Hospitals {
+	private Map<String, Hospital> hospitalsMap;
+	public Hospitals() {
+		hospitalsMap = new HashMap<String, Hospital>();
+	}
+	
+	public void addPatient(String name, int patientID,Date dob, SexType sexType,Admission admission){
+		if(!hospitalsMap.containsKey(name)){
+			hospitalsMap.put(name, new Hospital(name));
+		}
+		hospitalsMap.get(name).addPatient(admission, patientID, sexType, dob);
+	}
+}
